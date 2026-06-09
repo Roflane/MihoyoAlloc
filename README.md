@@ -1,5 +1,19 @@
-#### MihoyoAlloc
-This repo provides readable equivalent CPP code to the C pseudo code from one of mihoyo games gotten via reverse engineering.
+# Mihoyo::Alloc — reverse engineered memory allocator
+
+Readable C++ reconstruction of a pool allocator 
+recovered via reverse engineering from a Mihoyo game binary.
+
+**Stack:** C++, x64 reverse engineering (IDA/Ghidra)
+
+### What it does
+- Reconstructs `MemoryPool::Alloc` from decompiled pseudo-C
+- Documents 8-byte aligned allocation strategy
+- Shows `VirtualAlloc`-based commit logic with overflow guard
+
+### Why it's interesting
+The original binary had no source or documentation — 
+internal structure and behavior were recovered entirely 
+from disassembly and decompiler output.
 
 ```c
 void *__fastcall Mihoyo::Alloc(_QWORD *a1, __int64 a2, __int64 a3)
